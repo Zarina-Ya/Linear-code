@@ -12,27 +12,11 @@ namespace LinearСode
         {
 
 
-            int k = 3;// Ennter
-            int n = 15;//Exit 10
+            int k = 5;// Ennter
+            int n = 13;//Exit 10
 
             CreaterLinearBlock block = new CreaterLinearBlock(n, k);
-            //int d = 5;// минимальное расстояние
-            //LinearBlockCode lbc = new LinearBlockCode(k, n);
-
-            //Console.WriteLine( lbc);
-            //lbc.minDistance();
-
-
-            //lbc.GetAllDistance();
-            // lbc.NewMinDistanceForD();
-
-            //Console.ReadLine();
-            ////Console.WriteLine(lbc.isContains("0101100000"));
-            ////Console.WriteLine(lbc.isContains("0000011001"));
-            ////Console.ReadLine();
-
-
-
+          
             Console.ReadLine();
         }
     }

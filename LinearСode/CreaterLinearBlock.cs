@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LinearСode
+
 {
     public class CreaterLinearBlock
     {
 		private int k;
 		private int n;
 		private int wordCount;
-		private int t;
+		///private int t;
 		private int d;
 		private Matrix G;
 		Matrix[] codeWord;
@@ -113,36 +114,88 @@ namespace LinearСode
 		//n!k!(n−k)!
 		long SumC(int t)
 		{
+
+
+
+			
 			long sum = 0;
-			if (t == 0)
-			{
-				for (int i = 0; i <= t; i++)
-				{
-					long a = Fact(i);
-					long b = (Fact(n - i));
-					long c = (Fact(n));
-					long d = (c / (a * b));
-					sum += d;
-				}
+
+
+
+
+			for(int i = 0; i <= t ; i++)
+            {
+				long a = Fact(i);
+				long b = (Fact(n - i));
+				long c = (Fact(n));
+				long d = (c / (a * b));
+				sum += d;
 			}
-			else
-			{
-				for (int i = 0; i < t; i++)
-				{
-					long a = Fact(i);
-					long b = (Fact(n - i));
-					long c = (Fact(n));
-					long d = (c / (a * b));
-					sum += d;
-				}
-			}
+			//if (t == 0)
+			//{
+			//	for (int i = 0; i <= t; i++)
+			//	{
+			//		long a = Fact(i);
+			//		long b = (Fact(n - i));
+			//		long c = (Fact(n));
+			//		long d = (c / (a * b));
+			//		sum += d;
+			//	}
+			//}
+			//else
+			//{
+			//	for (int i = 0; i < t; i++)
+			//	{
+			//		long a = Fact(i);
+			//		long b = (Fact(n - i));
+			//		long c = (Fact(n));
+			//		long d = (c / (a * b));
+			//		sum += d;
+			//	}
+			//}
+			Console.WriteLine(sum);
 
 
 			return sum;
 		}
 
 
-		public long Fact(long n)
+		long SumCGilbert(int t)
+		{
+
+
+
+
+			long sum = 0;
+
+
+
+
+			for (int i = 0; i <=t ; i++)
+			{
+				long a = Fact(i);
+				long b = (Fact(n - i));
+				long c = (Fact(n));
+				long d = (c / (a * b));
+				sum += d;
+			}
+
+
+			Console.WriteLine(sum);
+			return sum;
+		}
+
+
+        public long GetFact(long val)
+        {
+			long a = Fact(val);
+			long b = (Fact(n - val));
+			long c = (Fact(n));
+			return (c / (a * b));
+		}
+
+
+        public long Fact(long n)
 		{
 			if (n == 0)
 				return 1;
@@ -152,11 +205,15 @@ namespace LinearСode
 		void VarshamovGilbertBorder(int d)
 		{
 			int t = d - 1;
-			double varshamov = /*Math.Log(SumC(t), 2)*/(double)Math.Pow(2, n) / SumC(t);
+			double varshamov = /*Math.Log(SumC(t), 2)*/(double)Math.Pow(2, n) / SumCGilbert(t);
+
 			Console.WriteLine(" VarshamovGilbertBorder " + varshamov.ToString());
 			
 
 			Console.WriteLine(" На сколько полученные параметры далеки от границ существования( Варшамова - Гилберта ) : " + (varshamov - (double)wordCount).ToString());
+
+
+			//// НИже графницы и выше границ и пояснение о том что это значит о качесиве кода, даже если получили Бк 
 			Console.WriteLine();
 		}
 
@@ -174,3 +231,6 @@ namespace LinearСode
 		}
 	}
 }
+
+//... среда либо до 13 , либо после 14 до 18 , в четверг тоже можно с 14 - 15 и не больше 
+//	пятницв весь день  и для за 3 до экзамена лучше уточнять 
